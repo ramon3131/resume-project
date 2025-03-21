@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume</title>
+<style>
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        color: #333;
+        font-size: 16px;
+    }
+    header {
+        background: #4CAF50;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+    }
+    nav ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+    }
+    nav ul li {
+        display: inline;
+        margin: 0 15px;
+    }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+    nav ul li a:hover {
+        color: #ddd;
+    }
+    section {
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 800px;
+        background: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+    h2 {
+        border-bottom: 2px solid #4CAF50;
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+    }
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    button {
+        background: #4CAF50;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background 0.3s;
+    }
+    button:hover {
+        background: #45a049;
+    }
+    footer {
+        text-align: center;
+        padding: 10px 0;
+        background: #4CAF50;
+        color: #fff;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
+    @media (max-width: 600px) {
+        nav ul li {
+            display: block;
+            margin: 10px 0;
+        }
+        section {
+            margin: 10px;
+            padding: 15px;
+        }
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+<script>
+    function downloadPDF() {
+        const element = document.querySelector('body > :not(footer)');
+        const opt = {
+            margin:       1,
+            filename:     'resume.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2 },
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+        html2pdf().from(element).set(opt).save();
+    }
+</script>
+</head>
+<body>
+<header>
+<h1>Thelma Mae Ramon</h1>
+<p>Email: thelmamaeramon@gmail.com | Phone: +63 9560512876</p>
+<nav>
+<ul>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<section id="summary">
+<h2>Summary</h2>
+<p><strong>Highly motivated</strong> computer science student specializing in prototype design, graphic design, and Python.</p>
+</section>
+
+<section id="education">
+<h2>Education</h2>
+<ul>
+<li>Bachelor of Science in Computer Science - University of the Ilocos Philippines</li>
+</ul>
+</section>
+<section id="skills">
+<h2>Skills</h2>
+<ul>
+<li>Prototype Design</li>
+<li>Graphic Design</li>
+<li>HTML, CSS, JavaScript</li>
+<li>PHP, MySQL</li>
+<li>Python</li>
+</ul>
+</section>
+
+<section id="contact">
+<h2>Contact Me</h2>
+<form method="post" action="submit_form.php">
+<label for="name">Name:</label>
+<input type="text" name="name" required><br>
+<label for="email">Email:</label>
+<input type="email" name="email" required><br>
+<label for="message">Message:</label>
+<textarea name="message" rows="4" cols="30"></textarea><br>
+<button type="submit">Send</button>
+</form>
+</section>
+<footer>
+<p>&copy; 2025 Thelma Mae Ramon. All rights reserved.</p>
+<button onclick="downloadPDF()">Download as PDF</button>
+</footer>
+</body>
+</html>
